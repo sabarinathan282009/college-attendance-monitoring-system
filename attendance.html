@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Student Attendance</h1>
+
+    <div class="attendance-box">
+        <h2>Mark Attendance</h2>
+
+        <input type="text" id="studentName" placeholder="Enter Student Name">
+
+        <button onclick="markAttendance('Present')">Present</button>
+<button onclick="markAttendance('Absent')">Absent</button>
+<div id="attendanceList"></div>
+    </div>
+<script>
+function markAttendance(status) {
+    const name = document.getElementById("studentName").value;
+
+    if (name === "") {
+        alert("Please enter student name");
+        return;
+    }
+
+    const record = document.createElement("p");
+    record.textContent = name + " - " + status;
+
+    document.getElementById("attendanceList").appendChild(record);
+
+    document.getElementById("studentName").value = "";
+}
+</script>
+</body>
+</html>
